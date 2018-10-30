@@ -11,7 +11,7 @@ from config import *
 
 def cut():
     hwnd = find_window(title=FGO窗口名)
-    # ShowWindow(hwnd, SW_RESTORE)
+    ShowWindow(hwnd, SW_RESTORE)
     SetForegroundWindow(hwnd)
 
     # 截取FGO主窗口截图

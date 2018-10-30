@@ -2,6 +2,7 @@
 pic/
 csv/
 pic.png
+order_anchor.png
 
 # auto
 .idea/
@@ -9,3 +10,11 @@ __pycache__/
 
 # zipped
 *.zip
+
+# generating files
+merge_csv.py
+renamer.py
+trainer.py
+processor.py
+autocuter.py
+cut.py
