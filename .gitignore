@@ -1,0 +1,7 @@
+# picture files
+pic/
+pic.png
+
+# auto
+.idea/
+__pycache__/
