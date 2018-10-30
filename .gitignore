@@ -1,7 +1,11 @@
 # picture files
 pic/
+csv/
 pic.png
 
 # auto
 .idea/
 __pycache__/
+
+# zipped
+*.zip
