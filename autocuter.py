@@ -20,6 +20,6 @@ while True:
     input()
     original_window = GetForegroundWindow()
     cut()
-    process_cut(start_index=op*5)
+    # process_cut(start_index=op*5)
     SetForegroundWindow(original_window)
     op += 1
