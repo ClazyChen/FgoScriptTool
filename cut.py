@@ -3,7 +3,6 @@
 import win32gui
 import win32ui
 import win32con
-from ctypes import windll
 from PIL import Image
 
 from config import *
