@@ -56,9 +56,24 @@ def GetButtonPositionByKey(key):
         '1': (1220, 225),
         'J': (400, 560),
         'K': (800, 560),
-        'L': (1200, 560)
+        'L': (1200, 560),
+        '\\': (1045, 165),
+        ';': (550, 705),
+        '\'': (1050, 705)
     }[key]
     return x//2, (y + GetWindowHeaderHeight())//2
+
+
+# 键盘映射Q键代表上划
+# 按照README的做法，应该允许划6下
+def drug(windowName=FGO窗口名):
+    hwnd = win32gui.FindWindow(None, windowName)
+    win32gui.SendMessage(hwnd, win32con.WM_ACTIVATE, win32con.WA_ACTIVE, 1)
+    sleep(0.01)
+    win32api.SendMessage(hwnd, win32con.WM_KEYDOWN, 0x51, 0)
+    sleep(0.01)
+    win32api.SendMessage(hwnd, win32con.WM_KEYUP, 0x51, 0)
+    sleep(0.02+randint(0, 10)/1000.0)
 
 
 # 点击一个点，默认随机误差为±5，随机延长0.00~0.01秒
@@ -79,5 +94,5 @@ def Click(position, delayTime=0.0, randRange=(2, 2), windowName=FGO窗口名):
 
 
 # 按下一个按键，不过在实际操作中以点击形式体现
-def Tap(key, delayTime=0.0, randRange=(5, 5), windowName=FGO窗口名):
+def Tap(key, delayTime=0.0, randRange=(2, 2), windowName=FGO窗口名):
     Click(GetButtonPositionByKey(key), delayTime, randRange, windowName)
