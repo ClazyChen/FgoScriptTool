@@ -13,7 +13,7 @@ def GetWindowHeaderHeight(windowName=FGO窗口名):
     hwnd = win32gui.FindWindow(None, windowName)
     left, top, right, bottom = win32gui.GetWindowRect(hwnd)
     h = bottom - top
-    return h * 2 - 900
+    return int(h * 缩放倍率) - 900
 
 
 # 用键盘映射获取x和y的坐标
@@ -61,7 +61,7 @@ def GetButtonPositionByKey(key):
         ';': (550, 705),
         '\'': (1050, 705)
     }[key]
-    return x//2, (y + GetWindowHeaderHeight())//2
+    return int(x/缩放倍率), int((y + GetWindowHeaderHeight())/缩放倍率)
 
 
 # 键盘映射Q键代表上划

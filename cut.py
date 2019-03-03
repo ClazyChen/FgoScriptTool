@@ -7,6 +7,7 @@ from PIL import Image
 
 from config import *
 import numpy as np
+import aircv as ac
 
 
 # cut函数提供了一个对FGO窗口进行截图的方法
@@ -22,8 +23,10 @@ def cut(savePicture=True, windowName=FGO窗口名):
     # 这个地方需要手动调整
     # 这里的2代表windows的“显示大小”设置为200%
     # 因为作者的电脑分辨率过高，所以为200%
-    w *= 2
-    h *= 2
+    w *= 缩放倍率
+    h *= 缩放倍率
+    w = int(w)
+    h = int(h)
 
     hwndDC = win32gui.GetWindowDC(hwnd)
     mfcDC = win32ui.CreateDCFromHandle(hwndDC)
@@ -45,3 +48,12 @@ def cut(savePicture=True, windowName=FGO窗口名):
         srcImage.save('pic.png')
         print("截图已保存……")
     return np.array(srcImage)
+
+
+# 对cut得到的结果进行比对
+def match(modeImage):
+    srcImage = cut(savePicture=False)
+    pos = ac.find_template(srcImage, modeImage)
+    if pos is not None and pos['confidence'] > 0.9:
+        return True
+    return False
