@@ -59,6 +59,7 @@ def EatApple():
             Click((pos_x, pos_y), 普通操作时间)
             Tap('\'', 普通操作时间)
             return
+        input()
 
 
 while True:
