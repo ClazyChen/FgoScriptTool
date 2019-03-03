@@ -47,7 +47,12 @@ def cut(savePicture=True, windowName=FGO窗口名):
     if savePicture:
         srcImage.save('pic.png')
         print("截图已保存……")
-    return np.array(srcImage)
+    result = np.array(srcImage)
+    win32gui.DeleteObject(saveBitMap.GetHandle())
+    saveDC.DeleteDC()
+    mfcDC.DeleteDC()
+    win32gui.ReleaseDC(hwnd, hwndDC)
+    return result
 
 
 # 对cut得到的结果进行比对

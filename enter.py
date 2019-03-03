@@ -42,21 +42,21 @@ def EatApple():
         drug()
         Delay(1.0)
         if 允许食用铜苹果 and match(copperImage):
-            Tap('D', 普通操作时间)
+            Tap('D', 放技能弹出选择目标窗口时间)
             Tap('\'', 普通操作时间)
             return
         if 允许食用银苹果 and match(sliverImage):
-            Tap('8', 普通操作时间)
+            Tap('8', 放技能弹出选择目标窗口时间)
             Tap('\'', 普通操作时间)
             return
         if 允许食用金苹果 and match(goldImage):
-            Tap('E', 普通操作时间)
+            Tap('E', 放技能弹出选择目标窗口时间)
             Tap('\'', 普通操作时间)
             return
         if 允许食用圣晶石:
             pos_x = int(800/缩放倍率)
             pos_y = int(135/缩放倍率)
-            Click((pos_x, pos_y), 普通操作时间)
+            Click((pos_x, pos_y), 放技能弹出选择目标窗口时间)
             Tap('\'', 普通操作时间)
             return
         input()
@@ -65,7 +65,7 @@ def EatApple():
 while True:
     print('开始脚本，当前完成次数:%d' % ScriptCount)
     EatApple()
-    Delay(1.0)
+    Delay(3.0)
     FindHelper()
     Delay(1.0)
     Tap(' ', 普通操作时间)
