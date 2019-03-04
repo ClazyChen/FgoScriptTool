@@ -39,6 +39,7 @@ def FindHelper():
 # 自动吃苹果
 def EatApple():
     if match(apImage):
+        Tap('[', 普通操作时间)
         drug()
         Delay(1.0)
         if 允许食用铜苹果 and match(copperImage):
