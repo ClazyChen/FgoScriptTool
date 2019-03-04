@@ -79,8 +79,8 @@ def UseSkill(user, index, target='', antiTarget=0):
 def Exchange(servant1, servant2):
     index1 = GetServantIndex(servant1)
     index2 = GetServantIndex(servant2)
-    Tap('567890'[index1-1], 普通操作时间)
-    Tap('567890'[index2-1], 普通操作时间)
+    Tap('567890'[index1], 普通操作时间)
+    Tap('567890'[index2], 普通操作时间)
     temp = team[index1]
     team[index1] = team[index2]
     team[index2] = temp

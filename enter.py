@@ -64,6 +64,7 @@ def EatApple():
 
 while True:
     print('开始脚本，当前完成次数:%d' % ScriptCount)
+    Delay(1.0)
     EatApple()
     Delay(3.0)
     FindHelper()
