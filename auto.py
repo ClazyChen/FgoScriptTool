@@ -91,9 +91,11 @@ def NoblePhantasm(user, antiTarget=0):
     global remainPhases
     if antiTarget > 0:
         Tap('234'[antiTarget-1], 普通操作时间)
+    userList = user.split('&')
     Tap('\n', 进入选卡界面时间)
-    index = GetServantIndex(user)
-    Tap('WER'[index], 普通操作时间)
+    indices = map(GetServantIndex, userList)
+    for index in indices:
+        Tap('WER'[index], 普通操作时间)
     Tap('S', 普通操作时间)
     Tap('D', 普通操作时间)
     remainPhases -= 1
